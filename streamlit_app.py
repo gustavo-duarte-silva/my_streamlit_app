@@ -36,7 +36,7 @@ except URLError as e:
   st.error()
 
   
-st.header("The fruit load list contains")
+st.header("View Our Fruit List - Add Your Favorites!")
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
@@ -45,6 +45,7 @@ def get_fruit_load_list():
 if st.button('Get Fruit Load List'):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
+  my_cnx.close()
   st.dataframe(my_data_rows)
 
 def insert_row_snowflake(new_fruit):
