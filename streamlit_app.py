@@ -18,8 +18,6 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 fruits_selected = st.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado', 'Strawberries'])
 st.dataframe(my_fruit_list.loc[fruits_selected])
 
-
-
 st.header("Fruityvice Fruit Advice!")
 fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
 st.write('The user entered ', fruit_choice)
@@ -36,7 +34,8 @@ my_data_row = my_cur.fetchall()
 st.header("The fruit load list contains")
 st.dataframe(my_data_row)
 
-
+add_fruit = st.text_input('What fruit would you like to add?', 'jackfruit')
+st.text('Thanks for adding '+add_fruit)
 
 
 
